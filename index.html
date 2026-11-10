@@ -1,303 +1,410 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmação — Aniversário da Natally 💙</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Comic Sans MS', 'Arial', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#a52832">
+  <title>Confirmação de presença | Natally</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #a52832;
+      --red-dark: #7f1e27;
+      --red-soft: #f8eeee;
+      --ink: #292525;
+      --muted: #777071;
+      --line: #e9e2e0;
+      --paper: #ffffff;
+      --background: #f6f3f1;
+      --shadow: 0 24px 70px rgba(55, 35, 35, .09);
+    }
 
-        body {
-            background: linear-gradient(135deg, #1E88E5 0%, #64B5F6 50%, #E1F5FE 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-        }
+    body {
+      min-height: 100vh;
+      padding: 42px 18px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(165, 40, 50, .055), transparent 28%),
+        radial-gradient(circle at 90% 90%, rgba(165, 40, 50, .045), transparent 25%),
+        var(--background);
+      font-family: "DM Sans", sans-serif;
+    }
 
-        .card {
-            background: #fff;
-            border-radius: 25px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-            position: relative;
-            overflow: hidden;
-        }
+    .page { width: 100%; max-width: 570px; }
 
-        .stitch-decoration {
-            position: absolute;
-            top: -10px;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background: repeating-linear-gradient(
-                90deg,
-                #4A148C 0px,
-                #4A148C 15px,
-                transparent 15px,
-                transparent 25px
-            );
-        }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 17px;
+      color: var(--red);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
 
-        .stitch-decoration-bottom {
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background: repeating-linear-gradient(
-                90deg,
-                #4A148C 0px,
-                #4A148C 15px,
-                transparent 15px,
-                transparent 25px
-            );
-        }
+    .eyebrow::before, .eyebrow::after {
+      content: "";
+      width: 27px;
+      height: 1px;
+      background: #d9aeb0;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 38px 42px 34px;
+      background: var(--paper);
+      border: 1px solid rgba(165, 40, 50, .08);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
 
-        .stitch-img {
-            width: 180px;
-            margin-bottom: 15px;
-            border-radius: 50%;
-            border: 5px solid #6A1B9A;
-            box-shadow: 0 0 0 5px #E91E63;
-        }
+    .top-accent {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: linear-gradient(90deg, var(--red-dark), #d46b70, var(--red));
+    }
 
-        h1 {
-            color: #4A148C;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
+    .header { text-align: center; }
 
-        .subtitle {
-            color: #1976D2;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
+    .portrait-wrap {
+      width: 142px;
+      height: 142px;
+      margin: 0 auto 23px;
+      padding: 6px;
+      border: 1px solid #ead0d1;
+      border-radius: 50%;
+      background: #fffafa;
+      box-shadow: 0 8px 24px rgba(165, 40, 50, .09);
+    }
 
-        .date-info {
-            background: #E3F2FD;
-            border-radius: 15px;
-            padding: 12px;
-            margin: 15px 0;
-            text-align: center;
-            color: #283593;
-            font-weight: 500;
-        }
+    .portrait {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      background: var(--red-soft);
+    }
 
-        .form-group {
-            margin-bottom: 18px;
-        }
+    h1 {
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2rem, 6vw, 2.55rem);
+      line-height: 1.15;
+      font-weight: 700;
+    }
 
-        label {
-            display: block;
-            color: #4A148C;
-            font-weight: bold;
-            margin-bottom: 6px;
-        }
+    .subtitle {
+      color: var(--red);
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
 
-        input, select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #9575CD;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
+    .divider {
+      width: 48px;
+      height: 2px;
+      margin: 25px auto;
+      background: var(--red);
+      border-radius: 3px;
+    }
 
-        input:focus, select:focus {
-            outline: none;
-            border-color: #E91E63;
-            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
-        }
+    .intro {
+      margin-bottom: 27px;
+      padding: 17px 18px;
+      color: #5f5555;
+      background: #faf6f5;
+      border: 1px solid #f0e7e5;
+      border-radius: 12px;
+      text-align: center;
+      font-size: .91rem;
+      line-height: 1.65;
+    }
 
-        .btn-confirm {
-            width: 100%;
-            background: linear-gradient(90deg, #E91E63, #9C27B0);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: transform 0.2s ease;
-        }
+    .intro strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-size: .96rem;
+    }
 
-        .btn-confirm:hover {
-            transform: scale(1.03);
-        }
+    .form-group { margin-bottom: 19px; }
 
-        .btn-confirm:active {
-            transform: scale(0.98);
-        }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #403839;
+      font-size: .84rem;
+      font-weight: 700;
+    }
 
-        .message-box {
-            margin-top: 20px;
-            padding: 15px;
-            background: #F3E5F5;
-            border-radius: 12px;
-            display: none;
-        }
+    .field-wrap { position: relative; }
 
-        .message-box.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
+    input, select {
+      width: 100%;
+      min-height: 51px;
+      padding: 13px 15px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      outline: none;
+      font: inherit;
+      font-size: .92rem;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    input::placeholder { color: #aaa1a1; }
 
-        .btn-whatsapp {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 12px;
-            margin-top: 10px;
-            font-weight: bold;
-        }
+    input:focus, select:focus {
+      border-color: var(--red);
+      background: #fffdfd;
+      box-shadow: 0 0 0 4px rgba(165, 40, 50, .09);
+    }
 
-        .btn-whatsapp:hover {
-            background: #128C7E;
-        }
+    select { cursor: pointer; }
 
-        .footer {
-            text-align: center;
-            margin-top: 25px;
-            color: white;
-            font-size: 0.9rem;
-        }
+    .hint {
+      display: block;
+      margin-top: 7px;
+      color: #999091;
+      font-size: .75rem;
+    }
 
-        .heart {
-            color: #E91E63;
-        }
-    </style>
+    .btn-confirm {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 54px;
+      margin-top: 27px;
+      padding: 15px 20px;
+      color: #fff;
+      background: var(--red);
+      border: 0;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(165, 40, 50, .19);
+      font: inherit;
+      font-size: .94rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+
+    .btn-confirm:hover {
+      background: var(--red-dark);
+      box-shadow: 0 10px 22px rgba(165, 40, 50, .24);
+      transform: translateY(-2px);
+    }
+
+    .btn-confirm:active { transform: translateY(0); }
+
+    .arrow { font-size: 1.15rem; }
+
+    .message-box {
+      display: none;
+      margin-top: 24px;
+      padding: 20px;
+      background: #fbf7f6;
+      border: 1px solid #ead7d6;
+      border-radius: 13px;
+    }
+
+    .message-box.show { display: block; animation: appear .35s ease both; }
+
+    .message-heading {
+      margin-bottom: 10px;
+      color: var(--red-dark);
+      font-size: .91rem;
+      font-weight: 700;
+    }
+
+    #mensagemTexto {
+      margin-bottom: 15px;
+      color: #554d4d;
+      font-size: .86rem;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      padding: 13px 16px;
+      color: #fff;
+      background: #287b55;
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 700;
+      transition: background .2s, transform .2s;
+    }
+
+    .btn-whatsapp:hover { background: #206746; transform: translateY(-1px); }
+
+    .footer {
+      padding: 21px 12px 0;
+      color: #827879;
+      text-align: center;
+      font-size: .78rem;
+      line-height: 1.8;
+    }
+
+    .footer strong { color: var(--red); font-weight: 700; }
+
+    .footer .contact { display: block; margin-top: 4px; color: #9a9090; }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(9px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 22px 13px; }
+      .card { padding: 32px 22px 27px; border-radius: 17px; }
+      .portrait-wrap { width: 124px; height: 124px; }
+      .intro { padding: 15px 13px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <div class="stitch-decoration"></div>
+  <main class="page">
+    <div class="eyebrow">Você é nosso convidado</div>
 
-            <div class="header">
-                <img 
-                    src="https://i.imgur.com/9QfKbQH.png" 
-                    alt="Stitch" 
-                    class="stitch-img"
-                    onerror="this.src='https://via.placeholder.com/180?text=Stitch+💙'"
-                >
-                <h1>🎉 Aniversário da Natally 🎉</h1>
-                <p class="subtitle">10 Anos — Vamos celebrar! 💙</p>
-            </div>
+    <section class="card" aria-labelledby="titulo">
+      <div class="top-accent"></div>
 
-            <div class="date-info">
-                ✨ Sua presença é o nosso maior presente! ✨<br>
-                Preencha abaixo e confirme pelo WhatsApp:
-            </div>
+      <header class="header">
+        <div class="portrait-wrap">
+          <img
+            src="https://i.imgur.com/9QfKbQH.png"
+            alt="Personagem Stitch"
+            class="portrait"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;height:100%;display:grid;place-items:center;color:#a52832;font-size:2.5rem&quot;>♡</div>';"
+          >
+        </div>
+        <h1 id="titulo">Aniversário da Natally</h1>
+        <p class="subtitle">10 anos de alegria</p>
+      </header>
 
-            <form id="confirmForm">
-                <div class="form-group">
-                    <label for="nome">👤 Nome do participante:</label>
-                    <input type="text" id="nome" placeholder="Digite seu nome completo" required>
-                </div>
+      <div class="divider"></div>
 
-                <div class="form-group">
-                    <label for="codigo">🎫 Código do convite:</label>
-                    <input type="text" id="codigo" placeholder="Ex: NAT123" required>
-                </div>
+      <div class="intro">
+        <strong>Será muito especial ter você conosco!</strong>
+        Preencha os dados abaixo para confirmar sua presença pelo WhatsApp.
+      </div>
 
-                <div class="form-group">
-                    <label for="acompanhantes">👨‍👩‍👧 Quantidade de acompanhantes:</label>
-                    <select id="acompanhantes" required>
-                        <option value="">Selecione...</option>
-                        <option value="0">Apenas eu</option>
-                        <option value="1">1 acompanhante</option>
-                        <option value="2">2 acompanhantes</option>
-                        <option value="3">3 acompanhantes</option>
-                        <option value="4">4 acompanhantes</option>
-                        <option value="5">5 ou mais</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn-confirm">
-                    💙 Gerar mensagem de confirmação 💙
-                </button>
-            </form>
-
-            <div class="message-box" id="messageBox">
-                <p style="color:#4A148C; font-weight:bold; margin-bottom:8px;">Mensagem pronta:</p>
-                <p id="mensagemTexto" style="color:#333; font-size:0.95rem; margin-bottom:12px;"></p>
-                <a href="" id="linkWpp" class="btn-whatsapp" target="_blank">
-                    💬 Enviar pelo WhatsApp
-                </a>
-            </div>
-
-            <div class="stitch-decoration-bottom"></div>
+      <form id="confirmForm">
+        <div class="form-group">
+          <label for="nome">Nome do participante</label>
+          <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" autocomplete="name" required>
         </div>
 
-        <div class="footer">
-            Feito com <span class="heart">❤</span> para a Natally — 10 anos de muita alegria! 💫<br>
-            Em caso de dúvidas, fale conosco: (38) 99841-6655
+        <div class="form-group">
+          <label for="codigo">Código do convite</label>
+          <input type="text" id="codigo" name="codigo" placeholder="Ex.: NAT123" required>
+          <small class="hint">Você encontra esse código no seu convite.</small>
         </div>
-    </div>
 
-    <script>
-        const form = document.getElementById('confirmForm');
-        const messageBox = document.getElementById('messageBox');
-        const mensagemTexto = document.getElementById('mensagemTexto');
-        const linkWpp = document.getElementById('linkWpp');
-        const numero = '5538998416655'; // Código Brasil + DDD + número
+        <div class="form-group">
+          <label for="acompanhantes">Quantidade de acompanhantes</label>
+          <select id="acompanhantes" name="acompanhantes" required>
+            <option value="">Selecione uma opção</option>
+            <option value="0">Apenas eu</option>
+            <option value="1">1 acompanhante</option>
+            <option value="2">2 acompanhantes</option>
+            <option value="3">3 acompanhantes</option>
+            <option value="4">4 acompanhantes</option>
+            <option value="5">5 ou mais acompanhantes</option>
+          </select>
+        </div>
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+        <button type="submit" class="btn-confirm">
+          Confirmar presença <span class="arrow" aria-hidden="true">→</span>
+        </button>
+      </form>
 
-            const nome = document.getElementById('nome').value.trim();
-            const codigo = document.getElementById('codigo').value.trim();
-            const acompanhantes = document.getElementById('acompanhantes').value;
+      <section class="message-box" id="messageBox" aria-live="polite">
+        <p class="message-heading">Sua mensagem está pronta</p>
+        <p id="mensagemTexto"></p>
+        <a href="#" id="linkWpp" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">◉</span> Enviar confirmação pelo WhatsApp
+        </a>
+      </section>
+    </section>
 
-            if (!nome || !codigo || !acompanhantes) {
-                alert('Por favor, preencha todos os campos!');
-                return;
-            }
+    <footer class="footer">
+      Feito com <strong>carinho</strong> para celebrar os 10 anos da Natally.
+      <span class="contact">Dúvidas? Entre em contato: (38) 99841-6655</span>
+    </footer>
+  </main>
 
-            // Monta a mensagem personalizada
-            const mensagem = `Olá! 💙 Confirmação de presença — Aniversário da Natally (10 anos) 🎂
+  <script>
+    const form = document.getElementById("confirmForm");
+    const messageBox = document.getElementById("messageBox");
+    const mensagemTexto = document.getElementById("mensagemTexto");
+    const linkWpp = document.getElementById("linkWpp");
+    const numero = "5538998416655";
 
-👤 Nome: ${nome}
-🎫 Código do convite: ${codigo}
-👥 Quantidade de acompanhantes: ${acompanhantes}
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-Confirmo minha presença! Mal posso esperar para celebrar com a Natally! 🎉✨`;
+      const nome = document.getElementById("nome").value.trim();
+      const codigo = document.getElementById("codigo").value.trim();
+      const acompanhantes = document.getElementById("acompanhantes").value;
 
-            mensagemTexto.innerText = mensagem;
-            
-            // Codifica para URL
-            const urlBase = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-            linkWpp.href = urlBase;
+      if (!nome || !codigo || acompanhantes === "") {
+        alert("Por favor, preencha todos os campos.");
+        return;
+      }
 
-            // Mostra a caixa com efeito
-            messageBox.classList.remove('show');
-            setTimeout(() => messageBox.classList.add('show'), 100);
-        });
-    </script>
+      const quantidade = acompanhantes === "0"
+        ? "Apenas eu"
+        : acompanhantes === "5"
+          ? "5 ou mais"
+          : acompanhantes;
+
+      const mensagem = `Olá! Estou confirmando minha presença no aniversário da Natally (10 anos).
+
+Nome: ${nome}
+Código do convite: ${codigo}
+Acompanhantes: ${quantidade}
+
+Confirmo minha presença! Será um prazer celebrar esse momento com a Natally.`;
+
+      mensagemTexto.textContent = mensagem;
+      linkWpp.href = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+      messageBox.classList.remove("show");
+      requestAnimationFrame(() => {
+        messageBox.classList.add("show");
+        messageBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
+  </script>
 </body>
 </html>
